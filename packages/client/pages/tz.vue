@@ -207,6 +207,11 @@
             </div>
             Тарифы:
 
+            <br>
+            <br>
+
+            <h3>На одного пользователя (mono)</h3>
+
             <v-data-table
               :headers="headersMono"
               :items="pointsMono"
@@ -219,6 +224,9 @@
               <hr>
               <br>
             </div>
+
+            <br>
+            <h3>Мульти аккаунт (multi)</h3>
 
             <v-data-table
               :headers="headersMulti"
@@ -315,13 +323,54 @@
 import {Component,  Vue} from "vue-property-decorator";
 @Component
 export default class extends Vue {
-
   headersMono:any = [
-
+    {text: '', value: 'tariff'},
+    {text: 'Ограниченный период', value: 'LimitedPeriodOfUse'},
+    {text: 'Работа с питанием', value: 'foodMod'},
+    {text: 'Статистика и отчётность', value: 'statistic'},
+    {text: '.doc .xls .pfd Документы', value: 'docReport'},
+    {text: 'Работа с журналом', value: 'WorkingWithJournal'},
+    {text: 'Внутрение настройки', value: 'settings'},
+    {text: 'Таблиц в журнале', value: 'tablesInJournal'},
+    {text: 'Цена за тариф', value: 'price'}
   ]
+
   pointsMono:any = [
-
+    {
+      tariff: 'trial',
+      LimitedPeriodOfUse: '+',
+      foodMod: '-',
+      statistic: 'ограничена',
+      docReport: '1 документ в день',
+      WorkingWithJournal: '+',
+      settings: 'Ограниченные',
+      tablesInJournal: 3,
+      price: '0'
+    },
+    {
+      tariff: 'standard',
+      LimitedPeriodOfUse: '-',
+      foodMod: '+',
+      statistic: '+',
+      docReport: '+',
+      WorkingWithJournal: '+',
+      settings: 'Стандарт',
+      tablesInJournal: 6,
+      price: '1500'
+    },
+    {
+      tariff: 'premium',
+      LimitedPeriodOfUse: '-',
+      foodMod: '+',
+      statistic: '+',
+      docReport: '+',
+      WorkingWithJournal: '+',
+      settings: 'Расширенные',
+      tablesInJournal: 'без ограничений',
+      price: '3000'
+    },
   ]
+
   headersMulti:any = [
     {text: '', value: 'tariff'},
     {text: 'Ограниченный период', value: 'LimitedPeriodOfUse'},
@@ -333,15 +382,15 @@ export default class extends Vue {
     {text: 'Кол-во Пользователей', value: 'numberOfUsers'},
     {text: 'Таблиц в журнале', value: 'tablesInJournal'},
     {text: 'Цена за тариф', value: 'price'}
-
   ]
+
   pointsMulti:any = [
     {
       tariff: 'trial',
       LimitedPeriodOfUse: '+',
       foodMod: '-',
-      statistic: '-',
-      docReport: '-',
+      statistic: 'ограничена',
+      docReport: '1 документ в день',
       WorkingWithJournal: '+',
       settings: 'Ограниченные',
       numberOfUsers: 2,
@@ -358,7 +407,7 @@ export default class extends Vue {
       settings: 'Стандарт',
       numberOfUsers: 4,
       tablesInJournal: 8,
-      price: '000'
+      price: '3500'
     },
     {
       tariff: 'standard',
@@ -370,7 +419,7 @@ export default class extends Vue {
       settings: 'Стандарт',
       numberOfUsers: 7,
       tablesInJournal: 11,
-      price: '000'
+      price: '6000'
     },
     {
       tariff: 'premium',
@@ -382,11 +431,9 @@ export default class extends Vue {
       settings: 'Расширенные',
       numberOfUsers: 'без ограничений',
       tablesInJournal: 'без ограничений',
-      price: '000'
+      price: '9500'
     },
   ]
-
-
 
 }
 </script>

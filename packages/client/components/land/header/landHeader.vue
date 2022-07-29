@@ -38,10 +38,6 @@ export default class extends Vue {
       link: '/personal',
       title: 'Кабинет',
     },
-    {
-      link: '/tz',
-      title: 'ТЗ',
-    },
   ]
 }
 </script>
